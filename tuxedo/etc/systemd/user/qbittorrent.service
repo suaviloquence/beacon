@@ -8,3 +8,6 @@ After=graphical-session.target network-online.target beacon-openvpn.service
 Type=exec
 Restart=no
 ExecStart=/etc/openvpn/helpers/netns-exec /usr/bin/qbittorrent
+
+[Install]
+WantedBy=graphical-session.target
