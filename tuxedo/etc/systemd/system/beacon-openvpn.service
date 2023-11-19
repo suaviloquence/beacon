@@ -1,0 +1,12 @@
+[Unit]
+Description=openvpn connection to beacon
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=system
+ExecStart=/usr/bin/openvpn --ifconfig-noexec --route-noexec --up /etc/openvpn/client/netns.sh --route-up /etc/openvpn/client/netns.sh --down /etc/openvpn/client/netns.sh --config /etc/openvpn/client/tuxedo.ovpn --script-security 2
+Restart=Always
+WorkingDirectory=/etc/openvpn/client
